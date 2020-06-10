@@ -27,7 +27,7 @@ public class EnemyMove : MonoBehaviour
 
     public void OnDetectObject(Collider collider)
     {
-        if (!_status.isMovable)
+        if (!_status.IsMovable)
         {
             _agent.isStopped = true;
             return;

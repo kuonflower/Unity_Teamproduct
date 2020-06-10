@@ -26,7 +26,7 @@ public abstract class MobStatus : MonoBehaviour
     private float _life;
 
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
         _life = lifeMax; //初期はライフ満タン
         _animator = GetComponentInChildren<Animator>();
