@@ -10,7 +10,7 @@ public class FallInChecker : MonoBehaviour
      {
         string label = " ";
 
-        if(red.IsGORL())
+        if(red.IsGoal())
         {
             label = "Fall in hole!";
         }
