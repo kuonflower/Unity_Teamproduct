@@ -42,23 +42,26 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     int maxAirAttackCount = 1;
-    
 
+    PlayerAnimationEvent playerAnimationEvent;
 
 
 
     void Start()
     {
         characterController = GetComponent<CharacterController>();
+        playerAnimationEvent = GetComponent<PlayerAnimationEvent>();
         animator = GetComponent<Animator>();
-       
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
     }
 
     void Update()
     {
         RayIsGround();
-        Jump();
-        Attack();
+       
 
         //　キャラクターコライダが接地、またはレイが地面に到達している場合
         if ( (characterController.isGrounded || RayIsGround() ) && velocity.y < 0)
@@ -75,11 +78,32 @@ public class PlayerController : MonoBehaviour
 
         animator.SetBool("IsGround", isGround);
                
-       
+        if(Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            animator.SetTrigger("Damage");
+        }
 
-        Movement();
+        if (Input.GetKeyDown(KeyCode.Mouse2))
+        {
+            animator.SetBool("Die",true);
+        }
+
+        Jump();
+        Attack();
+
+        if (!animator.GetCurrentAnimatorStateInfo(1).IsTag("Attack") && !animator.GetCurrentAnimatorStateInfo(2).IsTag("Damage"))
+        {
+            Movement();
+        }
+        else
+        {
+            animator.SetFloat("Speed", 0f);
+            return;
+        }
+       
         velocity.x = moveForward.x;
         velocity.z = moveForward.z;
+
         characterController.Move(velocity * moveSpeed * Time.deltaTime);
         velocity.y -= gravity * Time.deltaTime;
        
@@ -112,19 +136,12 @@ public class PlayerController : MonoBehaviour
     // プレイヤーの移動
     void Movement()
     {
-        //if(animator.GetCurrentAnimatorStateInfo(0).IsTag("Attack.Attack"))
-        //{         
-        //    return;
-        //}
+        
 
         //　地面に接地している時は初期化
-        if (isGround)
+        if (!isGround)
         {
-            //velocity = Vector3.zero;
-        }
-        // 光線を飛ばして接地確認をする際は重力だけは働かせておく、XとY軸は初期化
-        else
-        {
+            // 光線を飛ばして接地確認をする際は重力だけは働かせておく、XとY軸は初期化
             velocity = new Vector3(0f, velocity.y, 0f);
         }
 
@@ -165,7 +182,7 @@ public class PlayerController : MonoBehaviour
                 velocity.y = jumpPower;
             }
             // 地面に接地していない And 2段ジャンプのフラグがfalse(2段ジャンプしていない)
-            else if (isGround == false && doubleJumpFlag == false)
+            else if (!isGround && !doubleJumpFlag)
             {
                 animator.SetTrigger("Jump");
                 velocity.y = jumpPower;
@@ -176,7 +193,6 @@ public class PlayerController : MonoBehaviour
 
         animator.SetFloat("JumpSpeed", velocity.y);
 
-
     }
 
     void Attack()
@@ -184,17 +200,18 @@ public class PlayerController : MonoBehaviour
        
         if(Input.GetKeyDown(KeyCode.Mouse0))
         {
-            animator.SetTrigger("Attack");
-
-            if (!isGround && (airAttackCount < maxAirAttackCount))
+            if(isGround)
+            {
+                animator.SetTrigger("Attack");
+            }
+            else if (!isGround && (airAttackCount < maxAirAttackCount) && velocity.y != 0)
             {
                 animator.SetTrigger("AirAttack");
                 velocity.y = jumpPower;
                 airAttackCount++;
             }
-           
         }
-       
+           
     }
 
     // -----------------------------------------------------------------------------------------------------------

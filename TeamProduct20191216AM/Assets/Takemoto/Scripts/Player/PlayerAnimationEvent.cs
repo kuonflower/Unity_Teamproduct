@@ -10,13 +10,14 @@ public class PlayerAnimationEvent : MonoBehaviour
     private Collider rightHandCollider;
     private Collider rightFootCollider;
 
+    
         
 
     private void Start()
     {
         rightHandCollider = rightHand.GetComponent<SphereCollider>();
         rightFootCollider = rightFoot.GetComponent<SphereCollider>();
-            
+        
     }
 
     void HandAttackStart()
@@ -38,4 +39,6 @@ public class PlayerAnimationEvent : MonoBehaviour
     {
         rightFootCollider.enabled = false;
     }
+
+
 }
