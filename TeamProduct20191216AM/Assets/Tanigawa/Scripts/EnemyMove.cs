@@ -38,17 +38,17 @@ public class EnemyMove : MonoBehaviour
         if (collider.CompareTag("Player"))
         {
 
-            var positionDiff = collider.transform.position - transform.position;
-            var distance = positionDiff.magnitude;
+            //var positionDiff = collider.transform.position - transform.position;
+            //var distance = positionDiff.magnitude;
 
-            var direction = positionDiff.normalized;// playerへの方向
+            //var direction = positionDiff.normalized;// playerへの方向
 
-            // _raycastHitsにヒットしたColliderや座標情報などが格納される
-            //RaycastAllとRaycastNonAllocは同等の機能だが、RaycastNonAllocだとメモリにごみが残らないのでこちらを推奨
+            //// _raycastHitsにヒットしたColliderや座標情報などが格納される
+            ////RaycastAllとRaycastNonAllocは同等の機能だが、RaycastNonAllocだとメモリにごみが残らないのでこちらを推奨
 
-            var hitCount = Physics.RaycastNonAlloc(transform.position, direction, _raycastHits, distance,raycastLayerMask);
+            //var hitCount = Physics.RaycastNonAlloc(transform.position, direction, _raycastHits, distance,raycastLayerMask);
 
-            Debug.Log("hitCount:" + hitCount);
+            //Debug.Log("hitCount:" + hitCount);
             //if(hitCount == 0)
             //{
 
