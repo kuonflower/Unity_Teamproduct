@@ -4,22 +4,37 @@ using UnityEngine;
 
 public class Hole : MonoBehaviour
 {
-    bool GORL;
+    bool Goal;
 
     public string activeTag;
 
-    public bool IsGORL()
+    public bool IsGoal()
     {
-        return GORL;
+        return Goal;
     }
 
     void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == activeTag)
         {
-            GORL = true;
+            Goal = true;
         }
     }
+   /* void OnTriggerStay(Collider other)
+    {
+        Rigidbody r = other.gameObject.GetComponent<Rigidbody>();
+
+        Vector3 direction = transform.position - other.gameObject.transform.position;
+
+        if(other.gameObject.tag == activeTag)
+        {
+            r.velocity *= 0.9f;
+
+            r.AddForce(direction * r.mass * 20.0f);
+        }else{
+            r.AddForce(-direction * r.mass * 80.0f);
+        }
+    }*/
     // Start is called before the first frame update
     /*void Start()
     {
