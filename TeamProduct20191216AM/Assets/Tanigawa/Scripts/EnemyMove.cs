@@ -9,6 +9,7 @@ using UnityEngine.Networking;
 public class EnemyMove : MonoBehaviour
 {
 
+   [SerializeField] private LayerMask raycastLayerMask; //レイヤーマスク
    [SerializeField] private PlayerController playerController;
 
     private NavMeshAgent _agent;
@@ -45,7 +46,7 @@ public class EnemyMove : MonoBehaviour
             // _raycastHitsにヒットしたColliderや座標情報などが格納される
             //RaycastAllとRaycastNonAllocは同等の機能だが、RaycastNonAllocだとメモリにごみが残らないのでこちらを推奨
 
-            var hitCount = Physics.RaycastNonAlloc(transform.position, direction, _raycastHits, distance);
+            var hitCount = Physics.RaycastNonAlloc(transform.position, direction, _raycastHits, distance,raycastLayerMask);
 
             Debug.Log("hitCount:" + hitCount);
             //if(hitCount == 0)
