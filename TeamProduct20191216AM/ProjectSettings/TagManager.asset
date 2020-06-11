@@ -4,9 +4,13 @@
 TagManager:
   serializedVersion: 2
   tags:
+<<<<<<< HEAD
   - player
   - Enemy
   - Attack
+=======
+  - Enemy
+>>>>>>> tanigawa
   layers:
   - Default
   - TransparentFX
@@ -17,10 +21,10 @@ TagManager:
   - 
   - 
   - PostProcessing
-  - 
-  - 
-  - 
-  - 
+  - EnemyAttack
+  - Player
+  - PlayerAttack
+  - Enemy
   - 
   - 
   - 
