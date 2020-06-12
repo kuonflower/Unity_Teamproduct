@@ -10,7 +10,7 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
-        lifePanel.UpdateLife(9);
+        lifePanel.UpdateLife(6);
     }
 
     public void ReturnToTitle()
