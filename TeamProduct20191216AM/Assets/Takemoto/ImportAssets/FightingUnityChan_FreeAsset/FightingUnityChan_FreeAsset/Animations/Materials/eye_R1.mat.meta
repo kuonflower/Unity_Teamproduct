@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 85c01d16e04b06b4899cd6a16877e414
+=======
+guid: ce0f72d1c7e10fb44b5fc0376e1cb172
+>>>>>>> tahara_ryuuji
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 2100000
