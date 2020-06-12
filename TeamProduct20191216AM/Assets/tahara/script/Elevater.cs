@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovePanel : Trap
+public class Elevater : Trap
 {
+
     [SerializeField]
     float moveX;
     [SerializeField]
@@ -13,7 +14,7 @@ public class MovePanel : Trap
     [SerializeField]
     float speed;
 
-    public static bool PanelMoveStay = false;
+    public static bool flag = false;
 
     float step;
     bool goBack = false;
@@ -29,8 +30,10 @@ public class MovePanel : Trap
 
     protected override void Update()
     {
-        if (PanelMoveStay)
+        if (flag)
         {
+
+
 
             if (stop)
             {
