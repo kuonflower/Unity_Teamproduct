@@ -24,7 +24,7 @@ public class Status : MonoBehaviour
         if (hitPoint <= 0)
         {          
             //GenerateEffect();
-            Destroy(gameObject);
+            Destroy(gameObject, 3f);
         }
 
     }
