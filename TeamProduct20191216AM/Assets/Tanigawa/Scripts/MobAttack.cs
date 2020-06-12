@@ -52,6 +52,9 @@ public class MobAttack : MonoBehaviour
     public void OnAttackFinished()
     {
         attackCollider.enabled = false;
+
+        
+
         StartCoroutine(CooldownCoroutine());
     }
 
@@ -59,6 +62,9 @@ public class MobAttack : MonoBehaviour
     {
         yield return new WaitForSeconds(attackCooldown);
         _status.GoToNormalStateIfPossible();
+
+        Debug.Log("CooldownCoroutine:" + _status.IsMovable + ":" + attackCooldown);
+
     }
 
     // Update is called once per frame
