@@ -45,6 +45,8 @@ public class PlayerController : MonoBehaviour
 
     PlayerAnimationEvent playerAnimationEvent;
 
+    Status playerStatus;
+
 
 
     void Start()
@@ -52,6 +54,7 @@ public class PlayerController : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         playerAnimationEvent = GetComponent<PlayerAnimationEvent>();
         animator = GetComponent<Animator>();
+        playerStatus = GetComponent<Status>();
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -77,17 +80,9 @@ public class PlayerController : MonoBehaviour
         }
 
         animator.SetBool("IsGround", isGround);
-               
-        if(Input.GetKeyDown(KeyCode.Mouse1))
-        {
-            animator.SetTrigger("Damage");
-        }
 
-        if (Input.GetKeyDown(KeyCode.Mouse2))
-        {
-            animator.SetBool("Die",true);
-        }
-
+        Damage();
+        Die();
         Jump();
         Attack();
 
@@ -137,7 +132,6 @@ public class PlayerController : MonoBehaviour
     void Movement()
     {
         
-
         //　地面に接地している時は初期化
         if (!isGround)
         {
@@ -165,11 +159,10 @@ public class PlayerController : MonoBehaviour
         {
             transform.rotation = Quaternion.LookRotation(moveForward);
         }
-
-        
-      
+  
     }
 
+    // Playerのジャンプ
     void Jump()
     {
 
@@ -194,7 +187,7 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("JumpSpeed", velocity.y);
 
     }
-
+    // Playerの攻撃
     void Attack()
     {
        
@@ -212,6 +205,28 @@ public class PlayerController : MonoBehaviour
             }
         }
            
+    }
+
+    // Playerのダメージ
+    void Damage()
+    {
+        
+        if (Input.GetKeyDown(KeyCode.Mouse1) && isGround && playerStatus.hitPoint > 1)
+        {
+            playerStatus.Damage(1);
+            animator.SetTrigger("Damage");
+            
+        }
+
+    }
+
+    // Playerの死亡
+    void Die()
+    {
+        if (playerStatus.hitPoint <= 0)
+        {
+            animator.SetBool("Die", true);
+        }
     }
 
     // -----------------------------------------------------------------------------------------------------------
