@@ -24,6 +24,7 @@ public class MovePanelPlayerStay : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             MovePanel.PanelMoveStay = true;
+
         }
         else
         {

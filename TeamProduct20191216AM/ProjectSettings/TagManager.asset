@@ -6,7 +6,10 @@ TagManager:
   tags:
   - Enemy
   - Attack
+<<<<<<< HEAD
   - Coin
+=======
+>>>>>>> 5a897348efbbc026bd87422d2958efbf08f2a200
   layers:
   - Default
   - TransparentFX
