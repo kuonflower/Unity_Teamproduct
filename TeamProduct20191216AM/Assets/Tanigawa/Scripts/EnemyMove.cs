@@ -62,6 +62,7 @@ public class EnemyMove : MonoBehaviour
             //    _agent.isStopped = true;
             //}
             _agent.destination = collider.transform.position;
+            _agent.isStopped = false;
         }
     }
 
