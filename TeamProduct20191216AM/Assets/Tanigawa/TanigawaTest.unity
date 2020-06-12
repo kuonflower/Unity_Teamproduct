@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -202,12 +202,32 @@ PrefabInstance:
         type: 3}
       propertyPath: onTriggerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 1470435390}
+      objectReference: {fileID: 0}
+    - target: {fileID: 1568406870193096061, guid: 2fc8ee5d561a82c4bbe3dc55311749dd,
+        type: 3}
+      propertyPath: onTriggerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1568406870193096061, guid: 2fc8ee5d561a82c4bbe3dc55311749dd,
+        type: 3}
+      propertyPath: onTriggerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1568406871004705803, guid: 2fc8ee5d561a82c4bbe3dc55311749dd,
         type: 3}
       propertyPath: onTriggerStay.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 1470435390}
+      objectReference: {fileID: 0}
+    - target: {fileID: 1568406871004705803, guid: 2fc8ee5d561a82c4bbe3dc55311749dd,
+        type: 3}
+      propertyPath: onTriggerStay.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1568406871004705803, guid: 2fc8ee5d561a82c4bbe3dc55311749dd,
+        type: 3}
+      propertyPath: onTriggerStay.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1569385984592374567, guid: 2fc8ee5d561a82c4bbe3dc55311749dd,
         type: 3}
       propertyPath: m_Name
@@ -582,7 +602,6 @@ GameObject:
   - component: {fileID: 1470435391}
   - component: {fileID: 1470435390}
   - component: {fileID: 1470435396}
-  - component: {fileID: 1470435395}
   - component: {fileID: 1470435394}
   m_Layer: 9
   m_Name: PlayerCube
@@ -663,20 +682,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1470435394
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1470435389}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &1470435395
+--- !u!54 &1470435394
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
