@@ -5,10 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
-<<<<<<< HEAD
   - Attack
-=======
->>>>>>> TakemotoDaiki
   layers:
   - Default
   - TransparentFX
@@ -18,10 +15,10 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
+  - EnemyAttack
+  - Player
+  - PlayerAttack
+  - Enemy
   - 
   - 
   - 
