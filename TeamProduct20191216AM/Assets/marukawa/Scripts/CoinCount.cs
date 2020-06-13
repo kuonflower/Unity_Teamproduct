@@ -12,7 +12,7 @@ public class CoinCount : MonoBehaviour
 
         string label = "coinの枚数:" + CoinDestroyer.coinCount;
 
-        GUI.Label(new Rect(0, 0, 100, 30), label);
+        GUI.Label(new Rect(250, 0, 100, 30), label);
     }
 
     /*void Start()

@@ -47,10 +47,10 @@ public class PlayerController : MonoBehaviour
 
     Status playerStatus;
 
-    public GameObject effectManagerObj;
-    EffectManager effectManager;
+    //public GameObject effectManagerObj;
+    //EffectManager effectManager;
 
-
+    
 
     void Start()
     {
@@ -62,18 +62,20 @@ public class PlayerController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
-        effectManager = effectManagerObj.GetComponent<EffectManager>();
+        //effectManager = effectManagerObj.GetComponent<EffectManager>();
+
+       
 
     }
 
     void Update()
     {
-        
+
         RayIsGround();
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            effectManager.Effect1Emission(Vector3.zero, Quaternion.identity);
+            //effectManager.Effect1Emission(Vector3.zero, Quaternion.identity);
             
         }
 
