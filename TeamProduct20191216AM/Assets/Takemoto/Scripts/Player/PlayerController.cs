@@ -47,7 +47,10 @@ public class PlayerController : MonoBehaviour
 
     Status playerStatus;
 
+    //public GameObject effectManagerObj;
+    //EffectManager effectManager;
 
+    
 
     void Start()
     {
@@ -59,12 +62,22 @@ public class PlayerController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
+        //effectManager = effectManagerObj.GetComponent<EffectManager>();
+
+       
+
     }
 
     void Update()
     {
+
         RayIsGround();
-       
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            //effectManager.Effect1Emission(Vector3.zero, Quaternion.identity);
+            
+        }
 
         //　キャラクターコライダが接地、またはレイが地面に到達している場合
         if ( (characterController.isGrounded || RayIsGround() ) && velocity.y < 0)
@@ -82,7 +95,6 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("IsGround", isGround);
 
         Damage();
-        Die();
         Jump();
         Attack();
 
@@ -211,22 +223,21 @@ public class PlayerController : MonoBehaviour
     void Damage()
     {
         
-        if (Input.GetKeyDown(KeyCode.Mouse1) && isGround && playerStatus.hitPoint > 1)
+        if (Input.GetKeyDown(KeyCode.Mouse1) && isGround)
         {
             playerStatus.Damage(1);
-            animator.SetTrigger("Damage");
-            
+
+            if (playerStatus.hitPoint >= 1)
+            {
+                animator.SetTrigger("Damage");
+            }
+            else
+            {
+                animator.SetBool("Die", true);
+            }
+           
         }
 
-    }
-
-    // Playerの死亡
-    void Die()
-    {
-        if (playerStatus.hitPoint <= 0)
-        {
-            animator.SetBool("Die", true);
-        }
     }
 
     // -----------------------------------------------------------------------------------------------------------

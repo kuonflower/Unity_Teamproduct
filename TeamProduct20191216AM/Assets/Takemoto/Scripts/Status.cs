@@ -10,6 +10,7 @@ public class Status : MonoBehaviour
     public int maxHitPoint = 4;
 
     public GameObject damageBurst;
+    public float destroyTime;
 
     private void Start()
     {
@@ -24,7 +25,7 @@ public class Status : MonoBehaviour
         if (hitPoint <= 0)
         {          
             //GenerateEffect();
-            Destroy(gameObject);
+            Destroy(gameObject, 3f);
         }
 
     }
@@ -40,7 +41,7 @@ public class Status : MonoBehaviour
     {
         GameObject effect = Instantiate(damageBurst) as GameObject;
         effect.transform.position = gameObject.transform.position;
-        Destroy(effect, 2f);
+        Destroy(effect, destroyTime);
 
     }
 }
