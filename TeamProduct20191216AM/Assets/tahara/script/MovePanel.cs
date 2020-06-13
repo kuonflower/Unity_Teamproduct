@@ -60,4 +60,20 @@ public class MovePanel : Trap
             }
         }
     }
+        
+        protected virtual void OnTriggerEnter(Collider other)
+         {
+        if (other.gameObject.CompareTag("Player"))
+         {
+            other.gameObject.transform.SetParent(gameObject.transform);
+         }
+         }
+         protected virtual void OnTriggerExit(Collider other)
+         {
+        if (other.gameObject.CompareTag("Player"))
+         {
+            other.gameObject.transform.SetParent(null);
+         }
+    }
 }
+
