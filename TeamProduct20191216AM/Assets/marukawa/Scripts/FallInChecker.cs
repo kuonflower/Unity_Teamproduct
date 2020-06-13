@@ -5,6 +5,13 @@ using UnityEngine;
 public class FallInChecker : MonoBehaviour
 {
     public Hole red;
+
+    public GameObject showObject;
+
+    void Start()
+    {
+        //showObject = GameObject.Find("ReturnButton");
+    }
     // Start is called before the first frame update
     void OnGUI()
      {
@@ -12,17 +19,17 @@ public class FallInChecker : MonoBehaviour
 
         if(red.IsGoal())
         {
-            label = "Fall in hole!";
+            label = "clear";
+            showObject.SetActive(true);
+
+
         }
-        GUI.Label(new Rect(0, 0, 100, 30), label);
+        GUI.Label(new Rect(155, 0, 100, 30), label);
      }
 
 
 
-    /*void Start()
-    {
-        
-    }*/
+    
 
     // Update is called once per frame
     /*void Update()

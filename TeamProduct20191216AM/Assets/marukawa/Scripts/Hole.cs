@@ -4,21 +4,22 @@ using UnityEngine;
 
 public class Hole : MonoBehaviour
 {
-    bool Goal;
+    bool goal;
 
     public string activeTag;
 
     public bool IsGoal()
     {
-        return Goal;
+        return goal;
     }
 
     void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == activeTag)
         {
-            Goal = true;
+            goal = true;
         }
+
     }
    /* void OnTriggerStay(Collider other)
     {
