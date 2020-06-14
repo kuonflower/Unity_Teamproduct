@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StatusPlayer : MonoBehaviour
 {
-    public int hitPoint;  // HP
+    public static int hitPoint = 1;  // HP
     Animator animator;
 
 
@@ -33,6 +33,7 @@ public class StatusPlayer : MonoBehaviour
     public void Damage(int damage)
     {
         hitPoint -= damage;
+        Debug.Log(this.gameObject + "のダメージ受けた後のHP：" + hitPoint);
         if (hitPoint >= 1)
         {
             animator.SetTrigger("Damage");
