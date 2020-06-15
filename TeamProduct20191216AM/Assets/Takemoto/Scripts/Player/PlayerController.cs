@@ -47,8 +47,8 @@ public class PlayerController : MonoBehaviour
 
     Status playerStatus;
 
-    //public GameObject effectManagerObj;
-    //EffectManager effectManager;
+    public GameObject effectManagerObj;
+    EffectManager effectManager;
 
     
 
@@ -62,7 +62,7 @@ public class PlayerController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
-        //effectManager = effectManagerObj.GetComponent<EffectManager>();
+        effectManager = effectManagerObj.GetComponent<EffectManager>();
 
        
 
@@ -70,14 +70,12 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-
-        Debug.Log("ユニティ"　+ this.transform.localPosition);
         RayIsGround();
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            //effectManager.Effect1Emission(Vector3.zero, Quaternion.identity);
-            
+
+            effectManager.Effect1Emission(transform.position, Quaternion.identity);
         }
 
         //　キャラクターコライダが接地、またはレイが地面に到達している場合
@@ -178,14 +176,20 @@ public class PlayerController : MonoBehaviour
     // Playerのジャンプ
     void Jump()
     {
-
+        if(animator.GetCurrentAnimatorStateInfo(1).IsTag("Attack"))
+        {
+            return;
+        }
         if (Input.GetButtonDown("Jump"))
         {
-
+            int randomJumpVoice;
+            randomJumpVoice = Random.Range(1, 4);
+            AudioManager.Instance.PlayVoice("JumpVoice" + randomJumpVoice);
             if (isGround)
             {
                 animator.SetTrigger("Jump");
                 velocity.y = jumpPower;
+                
             }
             // 地面に接地していない And 2段ジャンプのフラグがfalse(2段ジャンプしていない)
             else if (!isGround && !doubleJumpFlag)
@@ -203,15 +207,16 @@ public class PlayerController : MonoBehaviour
     // Playerの攻撃
     void Attack()
     {
-       
+
         if(Input.GetKeyDown(KeyCode.Mouse0))
         {
             if(isGround)
             {
-                animator.SetTrigger("Attack");
+                animator.SetTrigger("Attack");               
             }
             else if (!isGround && (airAttackCount < maxAirAttackCount) && velocity.y != 0)
             {
+                AudioManager.Instance.PlayVoice("AirAttackVoice1");
                 animator.SetTrigger("AirAttack");
                 velocity.y = jumpPower;
                 airAttackCount++;

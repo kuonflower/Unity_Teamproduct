@@ -8,6 +8,7 @@ public class JumpBehavior : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         animator.ResetTrigger("Damage");
+        animator.ResetTrigger("Attack");
     }
 
     
@@ -20,6 +21,7 @@ public class JumpBehavior : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         animator.ResetTrigger("Damage");
+        animator.ResetTrigger("Attack");
     }
 
 
