@@ -71,6 +71,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
 
+        Debug.Log("ユニティ"　+ this.transform.localPosition);
         RayIsGround();
 
         if (Input.GetKeyDown(KeyCode.Q))
@@ -222,7 +223,7 @@ public class PlayerController : MonoBehaviour
     // Playerのダメージ
     //void Damage()
     //{
-        
+
     //    if (Input.GetKeyDown(KeyCode.Mouse1) && isGround)
     //    {
     //        playerStatus.Damage(1);
@@ -235,11 +236,14 @@ public class PlayerController : MonoBehaviour
     //        {
     //            animator.SetBool("Die", true);
     //        }
-           
+
     //    }
 
     //}
 
-    // -----------------------------------------------------------------------------------------------------------
+    
+
    
+    // -----------------------------------------------------------------------------------------------------------
+
 }
