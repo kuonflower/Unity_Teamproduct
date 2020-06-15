@@ -42,7 +42,7 @@ public class Enemy_kari : MonoBehaviour
         switch (Mode)
         {
             case 0:
-                //もし敵の位置と現在の位置が1よりちいさいなら
+                //もし敵の位置と現在の目的地が1よりちいさいなら
                 if (Vector3.Distance(transform.position, pos) < 1f)
                 {
                     Debug.Log("case0");
