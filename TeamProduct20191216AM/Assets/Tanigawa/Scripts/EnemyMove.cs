@@ -94,7 +94,7 @@ public class EnemyMove : MonoBehaviour
         if (!approachFlag)
         {
             //もし敵の位置と現在の目的地が1よりちいさいなら
-            if (Vector3.Distance(transform.position, pos) < 1f)
+            if (Vector3.Distance(transform.position, pos) < 1.5f)
             {
                
                 currentRoot += 1;

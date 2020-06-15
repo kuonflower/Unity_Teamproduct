@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/marukawa/marukawaScenes/Main.unity
     guid: a3ff260e471094147913cf7e4fd1ea6b
+  - enabled: 1
+    path: Assets/Takemoto/Total/Total.unity
+    guid: b28dc5c35de381542b4b02f25f6c1eab
   m_configObjects: {}
