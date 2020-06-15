@@ -61,19 +61,23 @@ public class MovePanel : Trap
         }
     }
         
-        protected virtual void OnTriggerEnter(Collider other)
-         {
+    protected virtual void OnTriggerEnter(Collider other)
+    {
         if (other.gameObject.CompareTag("Player"))
-         {
-            other.gameObject.transform.SetParent(gameObject.transform);
-         }
-         }
-         protected virtual void OnTriggerExit(Collider other)
-         {
-        if (other.gameObject.CompareTag("Player"))
-         {
-            other.gameObject.transform.SetParent(null);
-         }
+        {
+        // Player                            // 
+        other.gameObject.transform.SetParent(gameObject.transform);
+        Debug.Log("other1中"　+ other);
+        }
+    Debug.Log("other1外" + other);
+    }
+
+    protected virtual void OnTriggerExit(Collider other)
+    {
+    if (other.gameObject.CompareTag("Player"))
+    {
+    other.gameObject.transform.SetParent(null);
+    }
     }
 }
 
