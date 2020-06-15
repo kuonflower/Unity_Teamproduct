@@ -11,6 +11,7 @@ public class GameController : MonoBehaviour
     void Update()
     {
         lifePanel.UpdateLife(StatusPlayer.hitPoint);
+        
     }
 
     public void ReturnToTitle()
