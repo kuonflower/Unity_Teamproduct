@@ -94,7 +94,7 @@ public class PlayerController : MonoBehaviour
 
         animator.SetBool("IsGround", isGround);
 
-        Damage();
+        // Damage();
         Jump();
         Attack();
 
@@ -220,25 +220,25 @@ public class PlayerController : MonoBehaviour
     }
 
     // Playerのダメージ
-    void Damage()
-    {
+    //void Damage()
+    //{
         
-        if (Input.GetKeyDown(KeyCode.Mouse1) && isGround)
-        {
-            playerStatus.Damage(1);
+    //    if (Input.GetKeyDown(KeyCode.Mouse1) && isGround)
+    //    {
+    //        playerStatus.Damage(1);
 
-            if (playerStatus.hitPoint >= 1)
-            {
-                animator.SetTrigger("Damage");
-            }
-            else
-            {
-                animator.SetBool("Die", true);
-            }
+    //        if (playerStatus.hitPoint >= 1)
+    //        {
+    //            animator.SetTrigger("Damage");
+    //        }
+    //        else
+    //        {
+    //            animator.SetBool("Die", true);
+    //        }
            
-        }
+    //    }
 
-    }
+    //}
 
     // -----------------------------------------------------------------------------------------------------------
    

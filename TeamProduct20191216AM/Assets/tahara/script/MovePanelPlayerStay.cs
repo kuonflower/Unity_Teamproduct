@@ -25,11 +25,21 @@ public class MovePanelPlayerStay : MonoBehaviour
         {
             MovePanel.PanelMoveStay = true;
 
-        }
-        else
+        ///}
+        ///else
+        ///{
+           /// MovePanel.PanelMoveStay = false;
+        ///}
+
+        void OnTriggerEnter(Collision col)
         {
-            MovePanel.PanelMoveStay = false;
+            if (col.gameObject.tag == "Player")
+            {
+                transform.SetParent(col.transform);
+            }
         }
 
+
+        }
     }
 }
