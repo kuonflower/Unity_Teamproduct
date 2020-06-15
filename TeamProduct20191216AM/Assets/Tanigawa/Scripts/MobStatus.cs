@@ -20,7 +20,7 @@ public abstract class MobStatus : MonoBehaviour
 
     public float Life => _life;
 
-    [SerializeField] private float lifeMax = 10; //ライフ最大値
+    [SerializeField] private float lifeMax = 5; //ライフ最大値
     protected Animator _animator;
     protected StateEnum _state = StateEnum.Normal; //Mob状態
     private float _life;
@@ -45,6 +45,7 @@ public abstract class MobStatus : MonoBehaviour
         if (_state == StateEnum.Die) return;
 
         _life -= damage;
+        Debug.Log(this.gameObject + "のダメージ受けた後のHP：" + _life);
         if (_life > 0) return;
 
         _state = StateEnum.Die;

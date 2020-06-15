@@ -9,8 +9,8 @@ using UnityEngine.Networking;
 public class EnemyMove : MonoBehaviour
 {
 
-   [SerializeField] private LayerMask raycastLayerMask; //レイヤーマスク
-   [SerializeField] private PlayerController playerController;
+    [SerializeField] private LayerMask raycastLayerMask; //レイヤーマスク
+    [SerializeField] private PlayerController playerController;
 
     private NavMeshAgent _agent;
     private RaycastHit[] _raycastHits = new RaycastHit[10];
@@ -18,6 +18,19 @@ public class EnemyMove : MonoBehaviour
     private EnemyStatus _status;
 
     public GameObject player;
+
+    private bool approachFlag = false;
+
+
+
+    //public Vector3[] wayPoints = new Vector3[3];//徘徊するポイントをの座標を代入するVector3型の変数の配列を作る
+    //private int currentRoot = 0;//現在目指すポイントを代入する変数
+    //private int Mode;//敵の行動パターンを分けるための変数
+    //public Transform player;//プレイヤーの位置を取得するためのTransform型変数
+    //public Transform enemypos;//敵の位置を取得するためのTransform型の変数
+    //private NavMeshAgent agent;//NavMeshAgentの情報を取得するためのNavMeshAgent 型の変数
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +41,7 @@ public class EnemyMove : MonoBehaviour
 
     public void OnDetectObject(Collider collider)
     {
+        Debug.Log(collider);
         if (!_status.IsMovable)
         {
             _agent.isStopped = true;
@@ -61,14 +75,26 @@ public class EnemyMove : MonoBehaviour
             //    //見失ったら停止する
             //    _agent.isStopped = true;
             //}
+            approachFlag = true;
             _agent.destination = collider.transform.position;
             _agent.isStopped = false;
         }
     }
 
+    public void OffDetectObject(Collider collider)
+    {
+        approachFlag = false;
+    }
+
     // Update is called once per frame
-    //void Update()
-    //{
-    //    _agent.destination = player.transform.position;
-    //}
+    void Update()
+    {
+        Debug.Log(approachFlag);
+        if (!approachFlag)
+        {
+
+        _agent.destination = this.transform.position;
+           // _agent.destination = player.transform.position;
+        }
+    }
 }
