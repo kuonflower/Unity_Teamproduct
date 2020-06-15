@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StatusPlayer : MonoBehaviour
 {
-    public static int hitPoint = 1;  // HP
+    public static int hitPoint = 10;  // HP
     Animator animator;
 
 
