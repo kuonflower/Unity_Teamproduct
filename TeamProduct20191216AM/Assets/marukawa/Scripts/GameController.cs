@@ -11,10 +11,11 @@ public class GameController : MonoBehaviour
     void Update()
     {
         lifePanel.UpdateLife(StatusPlayer.hitPoint);
-    }
 
+    }
     public void ReturnToTitle()
     {
         SceneManager.LoadScene("Title");
     }
+
 }
