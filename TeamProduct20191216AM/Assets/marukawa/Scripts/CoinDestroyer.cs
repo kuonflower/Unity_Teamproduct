@@ -14,7 +14,7 @@ public class CoinDestroyer : MonoBehaviour
             coinCount++;
         }
 
-        Debug.Log("enter," + coinCount);
+       // Debug.Log("enter," + coinCount);
     }
 
 
