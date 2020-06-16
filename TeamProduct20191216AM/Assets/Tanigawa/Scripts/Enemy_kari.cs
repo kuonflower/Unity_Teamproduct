@@ -45,7 +45,7 @@ public class Enemy_kari : MonoBehaviour
                 //もし敵の位置と現在の目的地が1よりちいさいなら
                 if (Vector3.Distance(transform.position, pos) < 1f)
                 {
-                    Debug.Log("case0");
+                   // Debug.Log("case0");
                     currentRoot += 1;
                     if (currentRoot > wayPoints.Length - 1)//もしcurrentRootがwayPointsの要素数-1より大きいなら
                     {
@@ -53,12 +53,12 @@ public class Enemy_kari : MonoBehaviour
                     }
                 }
                 GetComponent<NavMeshAgent>().SetDestination(pos);//NavMeshAgentの情報を取得し目的地をposにする
-                Debug.Log(pos);
+                //Debug.Log(pos);
                 break;
             case 1:
                 agent.destination = player.transform.position;//プレイヤーに向かって進む
 
-                Debug.Log("case1");
+               // Debug.Log("case1");
                 break;
         }
 

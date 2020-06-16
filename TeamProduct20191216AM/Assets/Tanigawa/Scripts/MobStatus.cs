@@ -45,7 +45,7 @@ public abstract class MobStatus : MonoBehaviour
         if (_state == StateEnum.Die) return;
 
         _life -= damage;
-        Debug.Log(this.gameObject + "のダメージ受けた後のHP：" + _life);
+        //Debug.Log(this.gameObject + "のダメージ受けた後のHP：" + _life);
         if (_life > 0) return;
 
         _state = StateEnum.Die;
