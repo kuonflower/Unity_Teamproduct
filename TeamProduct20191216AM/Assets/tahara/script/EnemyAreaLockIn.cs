@@ -16,11 +16,10 @@ public class EnemyAreaLockIn : MonoBehaviour
 
     void Update()
     {
-        Debug.Log("Updateの中身 this.other :" + this.other  );
-        if (this.other == null)
+                if (this.other == null)
         {
             Elevater.flag = true;
-            Debug.Log("null" + Elevater.flag);
+            
             //GameObject Enemy = GameObject.FindGameObjectWithTag("Enemy");
             //if (Enemy == null)
             //{
@@ -34,8 +33,6 @@ public class EnemyAreaLockIn : MonoBehaviour
         if (other.gameObject.tag == "Enemy")
         {
             this.other = other;
-            Debug.Log("オントリガーステイの中身 this.other :" + this.other + "other :" + other);
-            Debug.Log("オントリガーステイ　other" + Elevater.flag);
         }
     
     }
