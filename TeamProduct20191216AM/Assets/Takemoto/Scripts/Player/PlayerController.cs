@@ -47,8 +47,8 @@ public class PlayerController : MonoBehaviour
 
     Status playerStatus;
 
-    public GameObject effectManagerObj;
-    EffectManager effectManager;
+    //public GameObject effectManagerObj;
+    //EffectManager effectManager;
 
     
 
@@ -59,10 +59,10 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
         playerStatus = GetComponent<Status>();
 
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        //Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false;
 
-        effectManager = effectManagerObj.GetComponent<EffectManager>();
+        //effectManager = effectManagerObj.GetComponent<EffectManager>();
 
        
 
@@ -75,7 +75,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q))
         {
 
-            effectManager.Effect1Emission(transform.position, Quaternion.identity);
+            //effectManager.Effect1Emission(transform.position, Quaternion.identity);
         }
 
         //　キャラクターコライダが接地、またはレイが地面に到達している場合
