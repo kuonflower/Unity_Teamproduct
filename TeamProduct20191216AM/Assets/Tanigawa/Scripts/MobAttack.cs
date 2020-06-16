@@ -69,7 +69,7 @@ public class MobAttack : MonoBehaviour
         yield return new WaitForSeconds(attackCooldown);
         _status.GoToNormalStateIfPossible();
 
-        Debug.Log("CooldownCoroutine:" + _status.IsMovable + ":" + attackCooldown);
+        //Debug.Log("CooldownCoroutine:" + _status.IsMovable + ":" + attackCooldown);
 
     }
 
