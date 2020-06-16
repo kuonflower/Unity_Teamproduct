@@ -20,7 +20,7 @@ public class PlayerAttack : MonoBehaviour
         {
             var targetEnemyStatus = other.GetComponent<EnemyStatus>();
             targetEnemyStatus.Damage(attackPower);
-            Debug.Log("HPだよ");
+          //  Debug.Log("HPだよ");
 
         }
 

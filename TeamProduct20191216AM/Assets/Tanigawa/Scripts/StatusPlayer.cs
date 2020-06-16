@@ -33,7 +33,7 @@ public class StatusPlayer : MonoBehaviour
     public void Damage(int damage)
     {
         hitPoint -= damage;
-        Debug.Log(this.gameObject + "のダメージ受けた後のHP：" + hitPoint);
+        //Debug.Log(this.gameObject + "のダメージ受けた後のHP：" + hitPoint);
         if (hitPoint >= 1)
         {
             animator.SetTrigger("Damage");

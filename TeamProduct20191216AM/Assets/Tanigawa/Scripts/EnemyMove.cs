@@ -41,7 +41,7 @@ public class EnemyMove : MonoBehaviour
 
     public void OnDetectObject(Collider collider)
     {
-        Debug.Log(collider);
+       // Debug.Log(collider);
         if (!_status.IsMovable)
         {
             _agent.isStopped = true;
@@ -90,7 +90,7 @@ public class EnemyMove : MonoBehaviour
     void Update()
     {
         Vector3 pos = wayPoints[currentRoot];//Vector3型のposに現在の目的地座標を代入
-        Debug.Log(approachFlag);
+       // Debug.Log(approachFlag);
         if (!approachFlag)
         {
             //もし敵の位置と現在の目的地が1よりちいさいなら
@@ -104,7 +104,7 @@ public class EnemyMove : MonoBehaviour
                 }
             }
             GetComponent<NavMeshAgent>().SetDestination(pos);//NavMeshAgentの情報を取得し目的地をposにする
-            Debug.Log(pos);
+           // Debug.Log(pos);
             //_agent.destination = this.transform.position;
             // _agent.destination = player.transform.position;
         }
