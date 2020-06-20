@@ -24,7 +24,7 @@ public class FallInChecker : MonoBehaviour
 
 
         }
-        GUI.Label(new Rect(155, 0, 100, 30), label);
+        GUI.Label(new Rect(300, 80, 500, 300), label);
      }
 
 
