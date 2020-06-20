@@ -2,28 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-using UnityEngine.SceneManagement;
-
-public class GameOverZone : MonoBehaviour
+public class GameOver : MonoBehaviour
 {
-    public bool GameOverflag = false;
+    private bool GameOverflag;
     public GameObject showObject;
 
+    // Start is called before the first frame update
     void Start()
     {
-        GameOverflag = false;
+        
     }
 
-    
+    // Update is called once per frame
     void Update()
     {
-      
-
+        
     }
-    
-    void onTriggerEnter(Collider gameover)
+
+    protected virtual void OnTriggerEnter(Collider gameover)
     {
-        if(gameover.gameObject.tag == "Player")
+        if (gameover.gameObject.tag == "Player")
         {
             Debug.Log("プレイヤー感知");
             //
@@ -48,9 +46,9 @@ public class GameOverZone : MonoBehaviour
 
         }
 
-        else if(!GameOverflag)
+        else if (!GameOverflag)
         {
-            showObject.SetActive (false);
+            showObject.SetActive(false);
         }
 
         GUI.Label(new Rect(300, 80, 500, 300), label);
