@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using UnityEngine.SceneManagement;
+
 public class GameOverZone : MonoBehaviour
 {
     public bool GameOverflag = false;
@@ -15,14 +17,20 @@ public class GameOverZone : MonoBehaviour
     
     void Update()
     {
-        
+      
     }
     
     void onTriggerEnter(Collider gameover)
     {
         if(gameover.gameObject.tag == "Player")
         {
+            //
+            SceneManager.LoadScene("stage");
             GameOverflag = true;
+        }
+        else
+        {
+            //GameOverflag = false;
         }
     }
 
@@ -37,6 +45,12 @@ public class GameOverZone : MonoBehaviour
 
 
         }
+
+        else
+        {
+            //showObject.SetActive (false);
+        }
+
         GUI.Label(new Rect(300, 80, 500, 300), label);
     }
 
